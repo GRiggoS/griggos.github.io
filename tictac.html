@@ -114,7 +114,7 @@
                     return board[a];
                 }
             }
-            return board.includes(null) ? null : 'Tie';
+            return board.includes(null) ? null : 'empate';
         }
 
         function makeMove(index) {
@@ -124,7 +124,7 @@
                 const winner = checkWinner();
 
                 if (winner) {
-                    message.textContent = winner === 'Tie' ? 'It\'s a Tie!' : `${winner} Wins!`;
+                    message.textContent = winner === 'empate' ? 'é um empate!' : `${winner} ganhou!`;
                     tictactoe.querySelectorAll('.cell').forEach(cell => cell.classList.add('taken'));
                 } else {
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';

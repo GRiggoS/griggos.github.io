@@ -43,24 +43,17 @@
             width: 100%;
         }
         .calculator {
-            width: 320px; /* Largura ajustada */
+            width: 340px; /* Largura da calculadora ajustada */
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin: 20px auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr); /* Garantindo 4 colunas iguais */
             grid-template-rows: repeat(5, 1fr);
             gap: 10px;
-            grid-template-areas: 
-                "display display display display"
-                "button7 button8 button9 buttonDiv"
-                "button4 button5 button6 buttonMul"
-                "button1 button2 button3 buttonSub"
-                "buttonClear button0 buttonEquals buttonAdd";
             height: auto;
-            max-height: 500px; /* Limita a altura da calculadora */
         }
         .display {
             width: 100%;
@@ -73,12 +66,7 @@
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
-            grid-column: span 4;
-        }
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            grid-column: span 4; /* O display ocupa toda a linha */
         }
         button {
             height: 50px;
@@ -101,7 +89,7 @@
             background: #a71d2a;
         }
 
-        /* Estilos para o botão "=" */
+        /* Estilo do botão "=" */
         button.equals {
             height: 110px; /* Maior altura */
             grid-row: span 2; /* Ocupa duas linhas */
@@ -112,6 +100,35 @@
             grid-column: 4; /* Fica na última coluna */
         }
         button.equals:hover {
+            background: #0056b3;
+        }
+
+        /* Estilos dos novos botões */
+        button:nth-child(17) { /* botão √ */
+            background: #ffc107;
+        }
+        button:nth-child(17):hover {
+            background: #e0a800;
+        }
+
+        button:nth-child(18) { /* botão sin */
+            background: #28a745;
+        }
+        button:nth-child(18):hover {
+            background: #218838;
+        }
+
+        button:nth-child(19) { /* botão cos */
+            background: #17a2b8;
+        }
+        button:nth-child(19):hover {
+            background: #138496;
+        }
+
+        button:nth-child(20) { /* botão tan */
+            background: #007bff;
+        }
+        button:nth-child(20):hover {
             background: #0056b3;
         }
     </style>
@@ -154,7 +171,7 @@
                     <button id="buttonEquals" onclick="calculateResult()" class="equals">=</button>
                     <button id="buttonAdd" onclick="appendValue('+')">+</button>
 
-                    <!-- Novos Botões para funções -->
+                    <!-- Novos botões de funções -->
                     <button onclick="appendValue('sqrt(')">√</button>
                     <button onclick="appendValue('sin(')">sin</button>
                     <button onclick="appendValue('cos(')">cos</button>

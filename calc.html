@@ -53,6 +53,14 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(5, 1fr);
             gap: 10px;
+            grid-template-areas: 
+                "display display display display"
+                "button7 button8 button9 buttonDiv"
+                "button4 button5 button6 buttonMul"
+                "button1 button2 button3 buttonSub"
+                "buttonClear button0 buttonEquals buttonAdd";
+            height: auto;
+            max-height: 500px; /* Limita a altura da calculadora */
         }
         .display {
             width: 100%;
@@ -126,25 +134,25 @@
             <div class="calculator">
                 <input type="text" id="display" class="display" disabled>
                 <div class="button-grid">
-                    <button onclick="appendValue('7')">7</button>
-                    <button onclick="appendValue('8')">8</button>
-                    <button onclick="appendValue('9')">9</button>
-                    <button onclick="appendValue('/')">/</button>
+                    <button id="button7" onclick="appendValue('7')">7</button>
+                    <button id="button8" onclick="appendValue('8')">8</button>
+                    <button id="button9" onclick="appendValue('9')">9</button>
+                    <button id="buttonDiv" onclick="appendValue('/')">/</button>
 
-                    <button onclick="appendValue('4')">4</button>
-                    <button onclick="appendValue('5')">5</button>
-                    <button onclick="appendValue('6')">6</button>
-                    <button onclick="appendValue('*')">x</button>
+                    <button id="button4" onclick="appendValue('4')">4</button>
+                    <button id="button5" onclick="appendValue('5')">5</button>
+                    <button id="button6" onclick="appendValue('6')">6</button>
+                    <button id="buttonMul" onclick="appendValue('*')">x</button>
 
-                    <button onclick="appendValue('1')">1</button>
-                    <button onclick="appendValue('2')">2</button>
-                    <button onclick="appendValue('3')">3</button>
-                    <button onclick="appendValue('-')">-</button>
+                    <button id="button1" onclick="appendValue('1')">1</button>
+                    <button id="button2" onclick="appendValue('2')">2</button>
+                    <button id="button3" onclick="appendValue('3')">3</button>
+                    <button id="buttonSub" onclick="appendValue('-')">-</button>
 
-                    <button onclick="clearDisplay()" class="clear">C</button>
-                    <button onclick="appendValue('0')">0</button>
-                    <button onclick="calculateResult()" class="equals">=</button>
-                    <button onclick="appendValue('+')">+</button>
+                    <button id="buttonClear" onclick="clearDisplay()" class="clear">C</button>
+                    <button id="button0" onclick="appendValue('0')">0</button>
+                    <button id="buttonEquals" onclick="calculateResult()" class="equals">=</button>
+                    <button id="buttonAdd" onclick="appendValue('+')">+</button>
 
                     <!-- Novos Botões para funções -->
                     <button onclick="appendValue('sqrt(')">√</button>

@@ -49,6 +49,10 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
         }
         .display {
             width: 100%;
@@ -61,6 +65,7 @@
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
+            grid-column: span 4;
         }
         .button-grid {
             display: grid;
@@ -86,6 +91,20 @@
         }
         button.clear:hover {
             background: #a71d2a;
+        }
+
+        /* Estilos para o botão "=" */
+        button.equals {
+            height: 110px; /* Maior altura */
+            grid-row: span 2; /* Ocupa duas linhas */
+            background: #007bff;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            grid-column: 4; /* Fica na última coluna */
+        }
+        button.equals:hover {
+            background: #0056b3;
         }
     </style>
 </head>
@@ -124,7 +143,7 @@
 
                     <button onclick="clearDisplay()" class="clear">C</button>
                     <button onclick="appendValue('0')">0</button>
-                    <button onclick="calculateResult()">=</button>
+                    <button onclick="calculateResult()" class="equals">=</button>
                     <button onclick="appendValue('+')">+</button>
 
                     <!-- Novos Botões para funções -->

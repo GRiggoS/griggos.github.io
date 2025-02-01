@@ -132,6 +132,12 @@
                     <button onclick="appendValue('sin(')">sin</button>
                     <button onclick="appendValue('cos(')">cos</button>
                     <button onclick="appendValue('tan(')">tan</button>
+
+                    <!-- Adicionando os Botões de Parênteses, Porcentagem e Fatorial -->
+                    <button onclick="appendValue('(')">(</button>
+                    <button onclick="appendValue(')')">)</button>
+                    <button onclick="appendValue('%')">%</button>
+                    <button onclick="calculateFactorial()">!</button>
                 </div>
             </div>
         </section>
@@ -156,10 +162,35 @@
                 display.value = eval(display.value.replace(/sqrt/g, "Math.sqrt")
                     .replace(/sin/g, "Math.sin")
                     .replace(/cos/g, "Math.cos")
-                    .replace(/tan/g, "Math.tan"));
+                    .replace(/tan/g, "Math.tan")
+                    .replace(/%/g, "/100")); // Para porcentagem
             } catch (error) {
                 display.value = 'Error';
             }
+        }
+
+        // Função para calcular o fatorial
+        function calculateFactorial() {
+            try {
+                let value = display.value;
+                let match = value.match(/(\d+)!$/);
+                if (match) {
+                    let num = parseInt(match[1]);
+                    display.value = factorial(num);
+                }
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+
+        // Função que calcula o fatorial de um número
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
         }
     </script>
 </body>
